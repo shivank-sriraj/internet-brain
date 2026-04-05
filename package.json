@@ -1,0 +1,17 @@
+{
+  "name": "internet-brain",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-leaflet": "^4.2.1",
+    "leaflet": "^1.9.4"
+  }
+}
