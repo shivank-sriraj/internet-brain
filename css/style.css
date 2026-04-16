@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0e27 0%, #0f1035 100%);
+    color: #e0e0e0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.navbar {
+    background: linear-gradient(135deg, rgba(10, 14, 39, 0.95) 0%, rgba(20, 25, 60, 0.95) 100%);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
+    border-bottom: 2px solid #00d4ff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.navbar h1 {
+    font-size: 1.8rem;
+    color: #00d4ff;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.navbar a {
+    color: #b0d4ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.navbar a:hover {
+    color: #00d4ff;
+    background: rgba(0, 212, 255, 0.1);
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.page {
+    display: none;
+    padding: 2rem;
+    animation: fadeIn 0.5s ease;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: calc(100vh - 80px);
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.map-container {
+    height: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(0, 212, 255, 0.2);
+    margin: 1.5rem 0;
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    background: #0a0e27;
+}
+
+.stats-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, rgba(20, 25, 60, 0.8) 0%, rgba(25, 35, 80, 0.8) 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #00d4ff;
+    box-shadow: 0 8px 24px rgba(0, 212, 255, 0.15);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 212, 255, 0.25);
+    border-left-color: #00f4ff;
+}
+
+.stat-card h3 {
+    color: #00d4ff;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.stat-card p {
+    color: #b0d4ff;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.predictions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.prediction-card {
+    background: linear-gradient(135deg, rgba(20, 25, 60, 0.8) 0%, rgba(25, 35, 80, 0.8) 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 212, 255, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.prediction-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 212, 255, 0.25);
+    border-color: #00f4ff;
+}
+
+.prediction-card h3 {
+    color: #00d4ff;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.prediction-card p {
+    color: #b0d4ff;
+    margin: 0.7rem 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+}
+
+.loading {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #00d4ff;
+    font-size: 1.1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.error {
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.2) 0%, rgba(220, 20, 60, 0.2) 100%);
+    border: 2px solid #ff6b6b;
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: #ff8888;
+    margin: 1.5rem 0;
+}
+
+.leaflet-container {
+    background: #0a0e27;
+}
+
+.leaflet-popup {
+    background: rgba(10, 14, 39, 0.95) !important;
+    color: #e0e0e0 !important;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .navbar ul {
+        gap: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .page {
+        padding: 1rem;
+    }
+
+    .map-container {
+        height: 400px;
+    }
+
+    .predictions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-panel {
+        grid-template-columns: 1fr;
+    }
+}
