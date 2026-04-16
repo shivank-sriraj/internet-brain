@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Brain - Global Intelligence Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar">
+            <h1>🧠 Internet Brain</h1>
+            <ul>
+                <li><a href="#dashboard">📊 Dashboard</a></li>
+                <li><a href="#predictions">🔮 Predictions</a></li>
+                <li><a href="#tracking">✈️ Tracking</a></li>
+            </ul>
+        </nav>
+
+        <!-- Dashboard Page -->
+        <section id="dashboard" class="page active">
+            <div class="page-header">
+                <h2>Global Conflict Map</h2>
+                <p>Real-time armed conflicts and security events worldwide</p>
+            </div>
+            <div id="conflict-map" class="map-container"></div>
+            <div id="conflict-stats" class="stats-panel"></div>
+            <div id="loading-dashboard" class="loading">Loading conflict data...</div>
+        </section>
+
+        <!-- Predictions Page -->
+        <section id="predictions" class="page">
+            <div class="page-header">
+                <h2>Geopolitical & Market Predictions</h2>
+                <p>Cryptocurrency trends, risk indices, and economic signals</p>
+            </div>
+            <div class="predictions-container">
+                <div id="crypto-section">
+                    <h3>Top Cryptocurrencies</h3>
+                    <div id="predictions-content" class="predictions-grid"></div>
+                </div>
+                <div id="risk-section">
+                    <h3>Geopolitical Risk Index</h3>
+                    <div id="risk-content" class="risk-grid"></div>
+                </div>
+            </div>
+            <div id="loading-predictions" class="loading">Loading market data...</div>
+        </section>
+
+        <!-- Tracking Page -->
+        <section id="tracking" class="page">
+            <div class="page-header">
+                <h2>Live Flight & Cargo Tracking</h2>
+                <p>Real-time aircraft positions and maritime vessels worldwide</p>
+            </div>
+            <div class="tracking-controls">
+                <button id="refresh-flights" class="btn">🔄 Refresh Flights</button>
+                <span id="flight-count">0 aircraft</span>
+            </div>
+            <div id="tracking-map" class="map-container"></div>
+            <div id="loading-tracking" class="loading">Loading flight data...</div>
+        </section>
+
+        <footer>
+            <p>Data sources: ACLED, CoinGecko, OpenSky Network | Last updated: <span id="timestamp"></span></p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/map-handler.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
